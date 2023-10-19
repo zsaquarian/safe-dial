@@ -1,2 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import { onMount } from 'svelte';
+
+  let users;
+  onMount(async () => {
+    users = await (await fetch('/api/getUsers')).json();
+  });
+</script>
+
+<h1 class="text-center text-5xl">Who would you like to contact?</h1>
+{#if users}
+  <ul class="list-disc list-inside m-2">
+    {#each users as user}
+      <li><a class="text-blue-500 text-2xl" href={`/call/${user}`}>{user}</a></li>
+    {/each}
+  </ul>
+{/if}
