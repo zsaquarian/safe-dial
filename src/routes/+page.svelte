@@ -19,3 +19,7 @@
     {/each}
   </ul>
 {/if}
+<a
+  class="text-2xl block bg-green-500 p-3 rounded-md text-white w-36 text-center mx-auto"
+  href="/createUser">Create new user</a
+>
